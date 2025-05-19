@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Clínica Médica - Index</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .nav-tabs .nav-link.active {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+      }
+      .nav-tabs .nav-link {
+        color: #6c757d;
+        border: none;
+      }
+      .form-label {
+        color: #6c757d;
+      }
+      .btn-primary {
+        background-color: #dc3545;
+        border-color: #dc3545;
+      }
+      .btn-primary:hover {
+        background-color: #bb2d3b;
+        border-color: #b02a37;
+      }
+      .card-custom {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        padding: 20px;
+        margin-top: 20px;
+      }
+      .form-section {
+        display: none;
+      }
+      /* Estilo do offcanvas menu */
+      #sidebarMenu .nav-link {
+        color: #212529;
+        padding: 10px 15px;
+      }
+      #sidebarMenu .nav-link.active,
+      #sidebarMenu .nav-link:hover {
+        background-color: #dc3545 !important;
+        color: #fff !important;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar do topo -->
+    <nav class="navbar bg-white shadow-sm px-3">
+      <button
+        aria-controls="sidebarMenu"
+        class="btn btn-danger"
+        data-bs-target="#sidebarMenu"
+        data-bs-toggle="offcanvas"
+        type="button"
+      >
+        Clinica Medica
+      </button>
+    </nav>
+    <!-- Menu lateral -->
+    <div
+      aria-labelledby="sidebarMenuLabel"
+      class="offcanvas offcanvas-start bg-white"
+      id="sidebarMenu"
+      tabindex="-1"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title text-danger" id="sidebarMenuLabel">
+          Clinica Medica
+        </h5>
+        <button
+          aria-label="Close"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          type="button"
+        ></button>
+      </div>
+      <div class="offcanvas-body p-0">
+        <nav class="nav flex-column pt-3">
+          <a
+            class="nav-link active"
+            href="#home"
+            onclick="showSection('home')"
+            role="tab"
+            >Home</a
+          >
+          <a
+            class="nav-link"
+            href="#cadastro-select"
+            onclick="showSection('cadastro-select')"
+            role="tab"
+            >Cadastro</a
+          >
+          <a
+            class="nav-link"
+            href="#listagem-select"
+            onclick="showSection('listagem-select')"
+            role="tab"
+            >Listagem</a
+          >
+        </nav>
+      </div>
+    </div>
+    <!-- Conteúdo principal -->
+    <main class="p-4">
+      <div class="container">
+        <!-- HOME -->
+        <section class="card-custom" id="home">
+          <h2>Bem-vindo à Clínica Médica</h2>
+          <p>
+            Nossa clínica está dedicada a fornecer atendimento médico de alta
+            qualidade, com profissionais experientes e tecnologia de ponta.
+          </p>
+          <h4>Sobre a clínica</h4>
+          <ul>
+            <li>Atendimento 24 horas em urgências e emergências.</li>
+            <li>
+              Especialidades: Cardiologia, Neurologia, Ortopedia, e muito mais.
+            </li>
+            <li>
+              Equipe composta por médicos, enfermeiros e especialistas altamente
+              qualificados.
+            </li>
+            <li>Convênios aceitos: Unimed, Amil, Bradesco Saúde e outros.</li>
+            <li>Localização: Avenida Principal, 1234 - Centro, Sua Cidade.</li>
+            <li>Contato: (11) 1234-5678 | contato@clinicamedica.com</li>
+          </ul>
+          <h4>Nossos valores</h4>
+          <p>
+            Cuidar da saúde com respeito, dedicação e ética, sempre colocando o
+            paciente em primeiro lugar.
+          </p>
+        </section>
+        <!-- Cadastro -->
+        <div>
+          <!-- Select Cadastro-->
+          <section
+            class="card-custom"
+            id="cadastro-select"
+            style="display: none"
+          >
+            <h2>Quem irá cadastrar?</h2>
+            <br />
+            <div class="mb-3">
+              <select
+                class="form-select"
+                id="tipoCadastro"
+                onchange="mostrarCadastroSelecionada()"
+              >
+                <option value="">-- Selecione --</option>
+                <option value="cad-funcionarios">Funcionário</option>
+                <option value="cad-convenios">Convênio</option>
+                <option value="cad-pacientes">Paciente</option>
+                <option value="cad-prontuarios">Prontuário</option>
+                <option value="cad-especialidades">Especialidade</option>
+                <option value="cad-consultas">Consulta</option>
+                <option value="cad-perfis">Perfil</option>
+              </select>
+            </div>
+            <button
+              class="btn btn-secondary mt-3"
+              onclick="showSection('home')"
+            >
+              Home
+            </button>
+          </section>
+          <!-- Cadastro de Funcionario -->
+          <section class="form-section card-custom" id="cad-funcionarios">
+            <h4>Cadastro de Funcionário</h4>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Usuário *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Senha *"
+                  required=""
+                  type="password"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Cargo *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Nome *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-2 mb-3">
+                <input class="form-control" placeholder="Idade" type="number" />
+              </div>
+              <div class="col-md-2 mb-3">
+                <input class="form-control" placeholder="Sexo" type="text" />
+              </div>
+              <div class="col-md-2 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="CPF *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input class="form-control" placeholder="Rua" type="text" />
+              </div>
+              <div class="col-md-2 mb-3">
+                <input class="form-control" placeholder="Número" type="text" />
+              </div>
+              <div class="col-md-2 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Complemento"
+                  type="text"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input class="form-control" placeholder="Bairro" type="text" />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input class="form-control" placeholder="Cidade" type="text" />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input class="form-control" placeholder="Estado" type="text" />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Contato *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Email *"
+                  required=""
+                  type="email"
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Data de Nascimento"
+                  type="date"
+                />
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3 flex-wrap gap-2">
+              <button class="btn btn-success btn-salvar" type="button">
+                Salvar
+              </button>
+              <div class="d-flex gap-2">
+                <button
+                  class="btn btn-secondary"
+                  onclick="showSection('cadastro-select')"
+                  type="button"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- Cadastro de Convenio -->
+          <section class="form-section card-custom" id="cad-convenios">
+            <h4>Cadastro de Convênio</h4>
+            <input
+              class="form-control mb-3"
+              placeholder="Nome *"
+              required=""
+              type="text"
+            />
+            <input
+              class="form-control mb-3"
+              placeholder="Descrição"
+              type="text"
+            />
+            <div class="d-flex justify-content-between mt-3 flex-wrap gap-2">
+              <button class="btn btn-success btn-salvar" type="button">
+                Salvar
+              </button>
+              <div class="d-flex gap-2">
+                <button
+                  class="btn btn-secondary"
+                  onclick="showSection('cadastro-select')"
+                  type="button"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- Cadastro de Paciente -->
+          <section class="form-section card-custom" id="cad-pacientes">
+            <h4>Cadastro de Paciente</h4>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Nome *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Idade *"
+                  required=""
+                  type="number"
+                />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Sexo *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="CPF *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input class="form-control" placeholder="Rua" type="text" />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input class="form-control" placeholder="Número" type="text" />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Complemento"
+                  type="text"
+                />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input class="form-control" placeholder="Bairro" type="text" />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input class="form-control" placeholder="Cidade" type="text" />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input class="form-control" placeholder="Estado" type="text" />
+              </div>
+              <div class="col-md-3 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Contato *"
+                  required=""
+                  type="text"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Email *"
+                  required=""
+                  type="email"
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <input
+                  class="form-control"
+                  placeholder="Data de Nascimento"
+                  type="date"
+                />
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3 flex-wrap gap-2">
+              <button class="btn btn-success btn-salvar" type="button">
+                Salvar
+              </button>
+              <div class="d-flex gap-2">
+                <button
+                  class="btn btn-secondary"
+                  onclick="showSection('cadastro-select')"
+                  type="button"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- Cadastro de Prontuario -->
+          <section class="form-section card-custom" id="cad-prontuarios">
+            <h4>Cadastro de Prontuário</h4>
+            <textarea
+              class="form-control mb-3"
+              placeholder="Receituário"
+            ></textarea>
+            <textarea class="form-control mb-3" placeholder="Exames"></textarea>
+            <input
+              class="form-control mb-3"
+              placeholder="Observações"
+              type="text"
+            />
+            <div class="d-flex justify-content-between mt-3 flex-wrap gap-2">
+              <button class="btn btn-success btn-salvar" type="button">
+                Salvar
+              </button>
+              <div class="d-flex gap-2">
+                <button
+                  class="btn btn-secondary"
+                  onclick="showSection('cadastro-select')"
+                  type="button"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- Cadastro de Especialidade -->
+          <section class="form-section card-custom" id="cad-especialidades">
+            <h4>Cadastro de Especialidade</h4>
+            <input
+              class="form-control mb-3"
+              placeholder="Nome *"
+              required=""
+              type="text"
+            />
+            <input
+              class="form-control mb-3"
+              placeholder="Descrição"
+              type="text"
+            />
+            <div class="d-flex justify-content-between mt-3 flex-wrap gap-2">
+              <button class="btn btn-success btn-salvar" type="button">
+                Salvar
+              </button>
+              <div class="d-flex gap-2">
+                <button
+                  class="btn btn-secondary"
+                  onclick="showSection('cadastro-select')"
+                  type="button"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- Cadastro de Consulta -->
+          <section class="form-section card-custom" id="cad-consultas">
+            <h4>Cadastro de Consulta</h4>
+            <input class="form-control mb-3" type="datetime-local" />
+            <input
+              class="form-control mb-3"
+              placeholder="Sintomas *"
+              required=""
+              type="text"
+            />
+            <div class="form-check mb-2">
+              <input class="form-check-input" id="retorno" type="checkbox" />
+              <label class="form-check-label" for="retorno">É Retorno</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" id="ativa" type="checkbox" />
+              <label class="form-check-label" for="ativa">Está Ativa</label>
+            </div>
+            <div class="d-flex justify-content-between mt-3 flex-wrap gap-2">
+              <button class="btn btn-success btn-salvar" type="button">
+                Salvar
+              </button>
+              <div class="d-flex gap-2">
+                <button
+                  class="btn btn-secondary"
+                  onclick="showSection('cadastro-select')"
+                  type="button"
+                >
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- Cadastro de Perfis -->
+          <form id="formPerfil" method="POST">
+            <section class="form-section card-custom" id="cad-perfis">
+              <h4>Cadastro de Perfil</h4>
+              <label class="form-label" for="nomePerfil">Nome do Perfil</label>
+              <input
+                class="form-control mb-3"
+                id="nomePerfil"
+                placeholder="Nome *"
+                required=""
+                type="text"
+              />
+              <p class="form-label"><strong>Permissões:</strong></p>
+              <div class="container">
+                <div class="row text-center fw-bold">
+                  <div class="col">Funcionário</div>
+                  <div class="col">Paciente</div>
+                  <div class="col">Consulta</div>
+                  <div class="col">Especialidade</div>
+                  <div class="col">Convênio</div>
+                  <div class="col">Prontuário</div>
+                </div>
+                <!-- Cadastrar -->
+                <div class="row text-center mt-2">
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="cadFunc"
+                      name="permissoes[funcionario][cadastrar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="cadFunc"
+                      >Cadastrar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="cadPac"
+                      name="permissoes[paciente][cadastrar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="cadPac"
+                      >Cadastrar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="cadCons"
+                      name="permissoes[consulta][cadastrar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="cadCons"
+                      >Cadastrar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="cadEsp"
+                      name="permissoes[especialidade][cadastrar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="cadEsp"
+                      >Cadastrar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="cadConv"
+                      name="permissoes[convenio][cadastrar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="cadConv"
+                      >Cadastrar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="cadPront"
+                      name="permissoes[prontuario][cadastrar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="cadPront"
+                      >Cadastrar</label
+                    >
+                  </div>
+                </div>
+                <!-- Ler -->
+                <div class="row text-center">
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="lerFunc"
+                      name="permissoes[funcionario][ler]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="lerFunc">Ler</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="lerPac"
+                      name="permissoes[paciente][ler]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="lerPac">Ler</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="lerCons"
+                      name="permissoes[consulta][ler]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="lerCons">Ler</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="lerEsp"
+                      name="permissoes[especialidade][ler]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="lerEsp">Ler</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="lerConv"
+                      name="permissoes[convenio][ler]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="lerConv">Ler</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="lerPront"
+                      name="permissoes[prontuario][ler]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="lerPront">Ler</label>
+                  </div>
+                </div>
+                <!-- Atualizar -->
+                <div class="row text-center">
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="attFunc"
+                      name="permissoes[funcionario][atualizar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="attFunc"
+                      >Atualizar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="attPac"
+                      name="permissoes[paciente][atualizar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="attPac"
+                      >Atualizar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="attCons"
+                      name="permissoes[consulta][atualizar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="attCons"
+                      >Atualizar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="attEsp"
+                      name="permissoes[especialidade][atualizar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="attEsp"
+                      >Atualizar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="attConv"
+                      name="permissoes[convenio][atualizar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="attConv"
+                      >Atualizar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="attPront"
+                      name="permissoes[prontuario][atualizar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="attPront"
+                      >Atualizar</label
+                    >
+                  </div>
+                </div>
+                <!-- Deletar -->
+                <div class="row text-center">
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="delFunc"
+                      name="permissoes[funcionario][deletar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="delFunc"
+                      >Deletar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="delPac"
+                      name="permissoes[paciente][deletar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="delPac">Deletar</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="delCons"
+                      name="permissoes[consulta][deletar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="delCons"
+                      >Deletar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="delEsp"
+                      name="permissoes[especialidade][deletar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="delEsp">Deletar</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="delConv"
+                      name="permissoes[convenio][deletar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="delConv"
+                      >Deletar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="delPront"
+                      name="permissoes[prontuario][deletar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="delPront"
+                      >Deletar</label
+                    >
+                  </div>
+                </div>
+                <!-- Listar -->
+                <div class="row text-center">
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="listFunc"
+                      name="permissoes[funcionario][listar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="listFunc"
+                      >Listar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="listPac"
+                      name="permissoes[paciente][listar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="listPac">Listar</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="listCons"
+                      name="permissoes[consulta][listar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="listCons"
+                      >Listar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="listEsp"
+                      name="permissoes[especialidade][listar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="listEsp">Listar</label>
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="listConv"
+                      name="permissoes[convenio][listar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="listConv"
+                      >Listar</label
+                    >
+                  </div>
+                  <div class="col-12 col-md form-check">
+                    <input
+                      class="form-check-input"
+                      id="listPront"
+                      name="permissoes[prontuario][listar]"
+                      type="checkbox"
+                    />
+                    <label class="form-check-label" for="listPront"
+                      >Listar</label
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between mt-3 flex-wrap gap-2">
+                <button class="btn btn-success btn-salvar" type="button">
+                  Salvar
+                </button>
+                <div class="d-flex gap-2">
+                  <button
+                    class="btn btn-secondary"
+                    onclick="showSection('cadastro-select')"
+                    type="button"
+                  >
+                    Voltar
+                  </button>
+                </div>
+              </div>
+            </section>
+          </form>
+        </div>
+        <!--Listagem -->
+        <div>
+          <!-- Select Listagem-->
+          <section
+            class="card-custom"
+            id="listagem-select"
+            style="display: none"
+          >
+            <h2>Escolha a entidade para visualizar a listagem</h2>
+            <div class="mb-3">
+              <label class="form-label" for="tipo">Escolha a entidade:</label>
+              <select
+                class="form-select"
+                id="tipoListagem"
+                onchange="mostrarListagemSelecionada()"
+              >
+                <option value="">-- Selecione --</option>
+                <option value="list-funcionarios">Funcionário</option>
+                <option value="list-convenios">Convênio</option>
+                <option value="list-pacientes">Paciente</option>
+                <option value="list-prontuarios">Prontuário</option>
+                <option value="list-especialidades">Especialidade</option>
+                <option value="list-consultas">Consulta</option>
+                <option value="list-perfis">Perfil</option>
+              </select>
+            </div>
+            <button
+              class="btn btn-secondary mt-3"
+              onclick="showSection('home')"
+            >
+              Home
+            </button>
+          </section>
+          <!--Listagem de Funcionarios-->
+          <section
+            class="card-custom"
+            id="list-funcionarios"
+            style="display: none"
+          >
+            <h4>Funcionários</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Sexo</th>
+                    <th>CPF</th>
+                    <th>Rua</th>
+                    <th>Número</th>
+                    <th>Complemento</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>Contato</th>
+                    <th>Email</th>
+                    <th>Data de Nascimento</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- 1 -->
+                  <tr>
+                    <td>1</td>
+                    <td>João Silva</td>
+                    <td>34</td>
+                    <td>M</td>
+                    <td>123.456.789-00</td>
+                    <td>Rua A</td>
+                    <td>123</td>
+                    <td>Apto 45</td>
+                    <td>Centro</td>
+                    <td>São Paulo</td>
+                    <td>SP</td>
+                    <td>(11) 91234-5678</td>
+                    <td>joao@email.com</td>
+                    <td>1990-05-10</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- 2 -->
+                  <tr>
+                    <td>2</td>
+                    <td>Maria Lopes</td>
+                    <td>29</td>
+                    <td>F</td>
+                    <td>987.654.321-00</td>
+                    <td>Rua das Acácias</td>
+                    <td>45</td>
+                    <td>Casa</td>
+                    <td>Vila Verde</td>
+                    <td>Campinas</td>
+                    <td>SP</td>
+                    <td>(19) 98888-1111</td>
+                    <td>maria.lopes@clinicamed.com</td>
+                    <td>1995-08-21</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- 3 -->
+                  <tr>
+                    <td>3</td>
+                    <td>Carlos Moura</td>
+                    <td>40</td>
+                    <td>M</td>
+                    <td>456.789.123-55</td>
+                    <td>Av. Paulista</td>
+                    <td>900</td>
+                    <td>Sala 12</td>
+                    <td>Bela Vista</td>
+                    <td>São Paulo</td>
+                    <td>SP</td>
+                    <td>(11) 93333-2222</td>
+                    <td>carlos.moura@clinicamed.com</td>
+                    <td>1984-12-03</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- 4 -->
+                  <tr>
+                    <td>4</td>
+                    <td>Fernanda Araújo</td>
+                    <td>31</td>
+                    <td>F</td>
+                    <td>654.321.987-88</td>
+                    <td>Rua da Saúde</td>
+                    <td>78</td>
+                    <td>Apto 101</td>
+                    <td>Saúde</td>
+                    <td>Curitiba</td>
+                    <td>PR</td>
+                    <td>(41) 97777-5555</td>
+                    <td>fernanda.araujo@clinicamed.com</td>
+                    <td>1993-04-10</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              class="btn btn-secondary mb-3"
+              onclick="showSection('listagem-select')"
+            >
+              Voltar
+            </button>
+          </section>
+          <!--Listagem de Pacientes-->
+          <section
+            class="card-custom"
+            id="list-pacientes"
+            style="display: none"
+          >
+            <h4>Pacientes</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Sexo</th>
+                    <th>CPF</th>
+                    <th>Rua</th>
+                    <th>Número</th>
+                    <th>Complemento</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                    <th>Estado</th>
+                    <th>Contato</th>
+                    <th>Email</th>
+                    <th>Data de Nascimento</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Ana Lima</td>
+                    <td>27</td>
+                    <td>F</td>
+                    <td>111.111.111-11</td>
+                    <td>Rua B</td>
+                    <td>456</td>
+                    <td>Casa</td>
+                    <td>Bairro Y</td>
+                    <td>Cidade Y</td>
+                    <td>RJ</td>
+                    <td>(21)98888-8888</td>
+                    <td>ana@email.com</td>
+                    <td>1997-01-15</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Lucas Martins</td>
+                    <td>35</td>
+                    <td>M</td>
+                    <td>222.222.222-22</td>
+                    <td>Rua das Palmeiras</td>
+                    <td>101</td>
+                    <td>Apto 202</td>
+                    <td>Centro</td>
+                    <td>São Paulo</td>
+                    <td>SP</td>
+                    <td>(11)91234-5678</td>
+                    <td>lucas.martins@gmail.com</td>
+                    <td>1989-03-22</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Beatriz Souza</td>
+                    <td>42</td>
+                    <td>F</td>
+                    <td>333.333.333-33</td>
+                    <td>Av. Brasil</td>
+                    <td>765</td>
+                    <td>Fundos</td>
+                    <td>Vila Nova</td>
+                    <td>Rio de Janeiro</td>
+                    <td>RJ</td>
+                    <td>(21)98765-4321</td>
+                    <td>beatrizsouza@hotmail.com</td>
+                    <td>1982-10-08</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Pedro Almeida</td>
+                    <td>50</td>
+                    <td>M</td>
+                    <td>444.444.444-44</td>
+                    <td>Rua Floriano</td>
+                    <td>333</td>
+                    <td>-</td>
+                    <td>Jardins</td>
+                    <td>Belo Horizonte</td>
+                    <td>MG</td>
+                    <td>(31)99876-1234</td>
+                    <td>pedro.almeida@yahoo.com</td>
+                    <td>1974-06-18</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              class="btn btn-secondary mb-3"
+              onclick="showSection('listagem-select')"
+            >
+              Voltar
+            </button>
+          </section>
+          <!--Listagem de Prontuarios-->
+          <section
+            class="card-custom"
+            id="list-prontuarios"
+            style="display: none"
+          >
+            <h4>Prontuários</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Receituário</th>
+                    <th>Exames</th>
+                    <th>Observações</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Paracetamol 500mg</td>
+                    <td>Hemograma</td>
+                    <td>Paciente com febre</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar</button
+                      ><button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td>Amoxicilina 500mg</td>
+                    <td>Raio-X</td>
+                    <td>Infecção respiratória</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Dipirona 1g</td>
+                    <td>ECG</td>
+                    <td>Paciente com dor de cabeça intensa</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Ibuprofeno 600mg</td>
+                    <td>Ultrassonografia</td>
+                    <td>Inflamação no joelho</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              class="btn btn-secondary mb-3"
+              onclick="showSection('listagem-select')"
+            >
+              Voltar
+            </button>
+          </section>
+          <!--Listagem de Convenios-->
+          <section
+            class="card-custom"
+            id="list-convenios"
+            style="display: none"
+          >
+            <h4>Convênios</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Unimed</td>
+                    <td>Plano nacional</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar</button
+                      ><button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Amil</td>
+                    <td>Plano estadual com ampla cobertura</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Bradesco Saúde</td>
+                    <td>Plano executivo empresarial</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>NotreDame Intermédica</td>
+                    <td>Plano individual premium</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              class="btn btn-secondary mb-3"
+              onclick="showSection('listagem-select')"
+            >
+              Voltar
+            </button>
+          </section>
+          <!--Listagem de Especialidade-->
+          <section
+            class="card-custom"
+            id="list-especialidades"
+            style="display: none"
+          >
+            <h4>Especialidades</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Cardiologia</td>
+                    <td>Doenças do coração</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar</button
+                      ><button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Neurologia</td>
+                    <td>Doenças do sistema nervoso</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Ortopedia</td>
+                    <td>Problemas nos ossos e articulações</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Gastroenterologia</td>
+                    <td>Trato digestivo e fígado</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              class="btn btn-secondary mb-3"
+              onclick="showSection('listagem-select')"
+            >
+              Voltar
+            </button>
+          </section>
+          <!--Listagem de Consultas-->
+          <section
+            class="card-custom"
+            id="list-consultas"
+            style="display: none"
+          >
+            <h4>Consultas</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Data e Horário</th>
+                    <th>Sintomas</th>
+                    <th>É Retorno</th>
+                    <th>Está Ativa</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>2025-05-16 14:30</td>
+                    <td>Dor abdominal</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar</button
+                      ><button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>2025-06-01 10:00</td>
+                    <td>Tosse e febre</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>2025-06-03 08:30</td>
+                    <td>Dor lombar</td>
+                    <td>Sim</td>
+                    <td>Não</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>2025-06-05 16:00</td>
+                    <td>Check-up anual</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              class="btn btn-secondary mb-3"
+              onclick="showSection('listagem-select')"
+            >
+              Voltar
+            </button>
+          </section>
+          <!--Listagem de Perfis-->
+          <section class="card-custom" id="list-perfis" style="display: none">
+            <h4>Perfis</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped align-middle">
+                <thead class="table-dark">
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Cad. Funcionário</th>
+                    <th>Ler</th>
+                    <th>Atualizar</th>
+                    <th>Deletar</th>
+                    <th>Listar</th>
+                    <th>Cad. Paciente</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Administrador</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar</button
+                      ><button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Recepcionista</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+                    <td>Não</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Enfermeiro</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+                    <td>Não</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Médico</td>
+                    <td>Não</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td>Sim</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-warning btn-sm me-1 btn-editar"
+                        type="button"
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        class="btn btn-danger btn-sm btn-excluir"
+                        type="button"
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button
+              class="btn btn-secondary mb-3"
+              onclick="showSection('listagem-select')"
+            >
+              Voltar
+            </button>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function showSection(id) {
+        // Seleciona todas as seções com a classe card-custom
+        const sections = document.querySelectorAll("section.card-custom");
+        sections.forEach((sec) => {
+          sec.style.display = "none";
+        });
+
+        // Tira o destaque do menu lateral
+        document.querySelectorAll("#sidebarMenu .nav-link").forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        // Mostra a seção correspondente ao id
+        const section = document.getElementById(id);
+        if (section) {
+          section.style.display = "block";
+        }
+
+        // Destaca o link ativo no menu
+        const activeLink = Array.from(
+          document.querySelectorAll("#sidebarMenu .nav-link")
+        ).find((link) => link.getAttribute("href") === "#" + id);
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+      }
+      function mostrarListagemSelecionada() {
+        const select = document.getElementById("tipoListagem");
+        const valor = select.value;
+        if (valor) {
+          showSection(valor);
+          select.value = "";
+        }
+      }
+
+      function mostrarCadastroSelecionada() {
+        const select = document.getElementById("tipoCadastro");
+        const valor = select.value;
+        if (valor) {
+          showSection(valor);
+          select.value = "";
+        }
+      }
+      // Botao de Salvar
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.addEventListener("click", function (e) {
+          if (e.target.classList.contains("btn-salvar")) {
+            const formSection = e.target.closest(".form-section");
+            const requiredInputs =
+              formSection.querySelectorAll("input[required]");
+            let allFilled = true;
+
+            requiredInputs.forEach((input) => {
+              if (!input.value.trim()) {
+                allFilled = false;
+              }
+            });
+
+            // Tira os alertas existentes antes de colocar outro
+            const existingAlerts = formSection.querySelectorAll(".alert");
+            existingAlerts.forEach((alert) => alert.remove());
+
+            if (!allFilled) {
+              const alert = document.createElement("div");
+              alert.className =
+                "alert alert-danger alert-dismissible fade show mt-3";
+              alert.role = "alert";
+              alert.innerHTML = `
+              <strong>Erro!</strong> Por favor, preencha todos os campos obrigatórios.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+              `;
+              formSection.appendChild(alert);
+              return;
+            }
+
+            const successAlert = document.createElement("div");
+            successAlert.className =
+              "alert alert-success alert-dismissible fade show mt-3";
+            successAlert.role = "alert";
+            successAlert.innerHTML = `
+              <strong>Sucesso!</strong> Formulário salvo com sucesso.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+              `;
+            formSection.appendChild(successAlert);
+
+            setTimeout(() => {
+              successAlert.classList.remove("show");
+              successAlert.classList.add("hide");
+              setTimeout(() => successAlert.remove(), 500);
+            }, 3000);
+          }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.addEventListener("click", function (e) {
+          if (e.target.classList.contains("btn-excluir")) {
+            const row = e.target.closest("tr");
+            if (confirm("Tem certeza que deseja excluir este item?")) {
+              row.remove();
+            }
+          }
+
+          if (e.target.classList.contains("btn-editar")) {
+            const row = e.target.closest("tr");
+            const table = row.closest("section");
+            const sectionId = table?.id;
+
+            // Mapeia de listagem para o formulário de cadastro correspondente
+            const mapListToForm = {
+              "list-pacientes": "cad-pacientes",
+              "list-funcionarios": "cad-funcionarios",
+              "list-convenios": "cad-convenios",
+              "list-prontuarios": "cad-prontuarios",
+              "list-especialidades": "cad-especialidades",
+              "list-consultas": "cad-consultas",
+              "list-perfis": "cad-perfis",
+            };
+
+            const formId = mapListToForm[sectionId];
+            if (!formId)
+              return alert("Formulário correspondente não encontrado.");
+
+            showSection(formId);
+
+            const cells = row.querySelectorAll("td");
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll("input, textarea");
+
+            let i = 1;
+            inputs.forEach((input) => {
+              if (
+                i < cells.length - 1 &&
+                input.type !== "button" &&
+                input.type !== "submit"
+              ) {
+                input.value = cells[i].innerText.trim();
+                i++;
+              }
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
